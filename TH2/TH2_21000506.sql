@@ -1,6 +1,9 @@
 -- Tạo database quanlydeancongty
 CREATE DATABASE quanlydeancongty;
 
+--
+-- Tạo các bảng trong database
+--
 -- Tạo bảng NHANVIEN và khóa chính
 CREATE TABLE NHANVIEN
 (
@@ -76,7 +79,9 @@ CREATE TABLE THANNHAN
     PRIMARY KEY (MA_NVIEN, TENTN)
 );
 
-
+--
+-- Chèn dữ liệu vào các bảng trong database
+--
 -- Chèn dữ liệu vào bảng NHANVIEN
 INSERT INTO NHANVIEN (HONV, TENLOT, TENNV, MANV, NGSINH, DCHI, PHAI, LUONG, MA_NQL, PHG) 
 VALUES
@@ -159,6 +164,9 @@ VALUES
 (30, 1, "Dao tao nha vien Marketing"),
 (30, 2, "Dao tao chuyen vien vien thiet ke");
 
+--
+-- Thiết lập khóa ngoại cho các bảng
+--
 -- Tạo khóa ngoại cho bảng CONGVIEC tham chiếu đến bảng DEAN
 ALTER TABLE congviec ADD FOREIGN KEY(MADA) REFERENCES dean(MADA);
 
