@@ -260,42 +260,6 @@ ALTER TABLE `phongban`
 ALTER TABLE `thannhan`
   ADD PRIMARY KEY (`MA_NVIEN`,`TENTN`);
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `congviec`
---
-ALTER TABLE `congviec`
-  ADD CONSTRAINT `congviec_ibfk_1` FOREIGN KEY (`MADA`) REFERENCES `dean` (`MADA`);
-
---
--- Constraints for table `diadiem_phg`
---
-ALTER TABLE `diadiem_phg`
-  ADD CONSTRAINT `diadiem_phg_ibfk_1` FOREIGN KEY (`MAPHG`) REFERENCES `phongban` (`MAPHG`);
-
---
--- Constraints for table `phancong`
---
-ALTER TABLE `phancong`
-  ADD CONSTRAINT `phancong_ibfk_1` FOREIGN KEY (`MADA`,`STT`) REFERENCES `congviec` (`MADA`, `STT`),
-  ADD CONSTRAINT `phancong_ibfk_2` FOREIGN KEY (`MA_NVIEN`) REFERENCES `nhanvien` (`MANV`);
-
---
--- Constraints for table `phongban`
---
-ALTER TABLE `phongban`
-  ADD CONSTRAINT `phongban_ibfk_1` FOREIGN KEY (`MAPHG`) REFERENCES `nhanvien` (`PHG`);
-
---
--- Constraints for table `thannhan`
---
-ALTER TABLE `thannhan`
-  ADD CONSTRAINT `thannhan_ibfk_1` FOREIGN KEY (`MA_NVIEN`) REFERENCES `nhanvien` (`MANV`);
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
