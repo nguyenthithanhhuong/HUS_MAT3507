@@ -163,24 +163,3 @@ VALUES
 (20, 1, "Lap dat cap quang"),
 (30, 1, "Dao tao nha vien Marketing"),
 (30, 2, "Dao tao chuyen vien vien thiet ke");
-
---
--- Thiết lập khóa ngoại cho các bảng
---
--- Tạo khóa ngoại cho bảng CONGVIEC tham chiếu đến bảng DEAN
-ALTER TABLE congviec ADD FOREIGN KEY(MADA) REFERENCES dean(MADA);
-
--- Tạo khóa ngoại cho bảng PHANCONG tham chiếu đến bảng CONGVIEC
-ALTER TABLE phancong ADD FOREIGN KEY(MADA, STT) REFERENCES congviec(MADA, STT);
-
--- Tạo khóa ngoại cho bảng PHANCONG tham chiếu đến bảng NHANVIEN
-ALTER TABLE phancong ADD FOREIGN KEY(MA_NVIEN) REFERENCES nhanvien(MANV);
-
--- Tạo khóa ngoại cho bảng THANNHAN tham chiếu đến bảng NHANVIEN
-ALTER TABLE thaNnhan ADD FOREIGN KEY(MA_NVIEN) REFERENCES nhanvien(MANV);
-
--- Tạo khóa ngoại cho bảng PHONGBAN tham chiếu đến bảng NHAVIEN
-ALTER TABLE phongban ADD FOREIGN KEY(MAPHG) REFERENCES nhanvien(PHG);
-
--- Tạo khóa ngoại cho bảng DIADIEM_PHG tham chiếu đến bảng PHONGBAN
-ALTER TABLE diadiem_phg ADD FOREIGN KEY(MAPHG) REFERENCES phongban(MAPHG);
